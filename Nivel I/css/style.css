@@ -1,0 +1,87 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: #262626;
+}
+.container {
+	/* Caja donde rebota la pelota */
+	position:relative;
+	top: -0%;
+	left: 50%;
+	right: 50%;
+	bottom: 50%;
+	transform: translate(-50%, -50%);
+}
+
+
+.pelota {
+	/* Propiedades de la pelota 85px diametro */
+	width: 85px;
+	height: 85px;
+	border-radius: 50%;
+	background: #c9f364;
+	position: absolute; 
+	transform: translate(-50%, -50%);
+	overflow: hidden;
+	/* La animación se repite  y alterna con el valor "infinite alternate" */
+	animation: pelota 3.5s linear infinite alternate;
+}
+/* Before / after Para darle formato a la pelota*/
+.pelota:before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 5px solid #fff;
+	border-radius: 50%;
+	box-sizing: border-box;
+	background: transparent;
+	left: -65%;
+	filter: blur(1px);
+}
+.pelota:after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 5px solid #fff;
+	border-radius: 50%;
+	box-sizing: border-box;
+	background: transparent;
+	right: -65%;
+	filter: blur(1px);
+}
+/* La pelota rota de 0 grados a 360 grados de una instancia a otra y viceversa. */
+@keyframes pelota
+{
+    0%
+    {
+        top:0vh;
+        left: 0px;
+        transform:  rotate(0deg);
+    }    
+    25%
+    {
+        top: 90vh;
+        left: 300px;
+        transform: rotate(360deg);
+    }    
+    50%
+    {
+        top: 0vh;
+        left: 600px;
+        transform:  rotate(0deg);
+    }    
+    75%
+    {
+        top: 90vh;
+        left: 800px;
+        transform:  rotate(360deg);
+    }    
+    100%
+    {
+        top: 0vh;
+        left: 1200px;
+        transform:  rotate(0deg);
+    }
+}

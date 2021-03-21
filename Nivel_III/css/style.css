@@ -1,0 +1,173 @@
+* {
+  margin: 2px 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+html {
+  display: block;
+}
+
+body {
+  line-height: 1.5;
+}
+/*CUSTOM CSS */
+h1 {
+  font-family: "Lato", sans-serif;
+  font-size: 3.5vw;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  /* Fuente suave y regular */
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: grayscale;
+}
+
+/*container Padre*/
+.strips {
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/*Container numero 1 y Animación */
+#strip1 {
+  background-color: #244f75;
+  -webkit-animation: container1 1s cubic-bezier(0.23, 1, 0.32, 1) 0.1s both;
+  animation: container1 1s cubic-bezier(0.23, 1, 0.32, 1) 0.1s both;
+}
+
+/*Container numero 2 y Animación */
+#strip2 {
+  background-color: #60bfbf;
+  -webkit-animation: container2 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s both;
+  animation: container2 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s both;
+  /*linea blanca entres container*/
+  margin-left: 0.2rem;
+}
+
+/*Container numero 3 y Animación */
+#strip3 {
+  background-color: #8c4b7e;
+  -webkit-animation: container3 1s cubic-bezier(0.23, 1, 0.32, 1) 0.3s both;
+  animation: container3 1s cubic-bezier(0.23, 1, 0.32, 1) 0.3s both;
+  margin-left: 0.2rem;
+}
+
+/*Container num4* y Animación */
+#strip4 {
+  background-color: #f8bb44;
+  -webkit-animation: container4 1s cubic-bezier(0.23, 1, 0.32, 1) 0.4s both;
+  animation: container4 1s cubic-bezier(0.23, 1, 0.32, 1) 0.4s both;
+  margin-left: 0.2rem;
+}
+
+/*Container num5 y Animación */
+#strip5 {
+  background-color: #f24b4b;
+  -webkit-animation: container5 1s cubic-bezier(0.23, 1, 0.32, 1) 0.5s both;
+  animation: container5 1s cubic-bezier(0.23, 1, 0.32, 1) 0.5s both;
+  margin-left: 0.2rem;
+}
+
+/*Containers, 1 a 5*/
+.strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Una quinta parte de la pantalla y la altura total de la pantalla */
+  flex-basis: 20vw;
+  height: 100vh;
+  /* Para evitar que las capas blancas se superpongan al pasar el mouse */
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/*Capa Blanca*/
+.strip:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0.05;
+  /*Posición de reposo Capa Blanca*/
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-transform: skew(30deg) scaleY(1) translate(0, 0);
+  transform: skew(30deg) scaleY(1) translate(0, 0);
+  /*Movimiento Capa Blanca*/
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/*Efecto de desplazamiento de capa blanca */
+.strip:hover:before {
+  /* Aumento capa blanca */
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  opacity: 0.1;
+}
+
+/*Animaciones - Keyframe*/
+@keyframes container1 {
+  /*container 1 hoja desde la Izquierda*/
+  0% {
+    -webkit-transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+@keyframes container2 {
+  /*container 2 hojas desde abajo*/
+  0% {
+    -webkit-transform: translate(0, 100%);
+    transform: translate(0, 100%);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+@keyframes container3 {
+  /*container 3 hojas desde abajo*/
+  0% {
+    -webkit-transform: translate(0, -100%);
+    transform: translate(0, -100%);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+@keyframes container4 {
+  /*container 4 hojas desde abajo*/
+  0% {
+    -webkit-transform: translate(0, 100%);
+    transform: translate(0, 100%);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+@keyframes container5 {
+  /*container 5 hojas desde la Derecha*/
+  0% {
+    -webkit-transform: translate(100%, 0);
+    transform: translate(100%, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}

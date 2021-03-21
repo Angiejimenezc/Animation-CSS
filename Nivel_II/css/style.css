@@ -1,0 +1,94 @@
+body {
+  background:  #262626;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  perspective: 2000px;
+}
+
+.pelota {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background-color: #c9f364;
+  position: absolute;
+  top: 0;
+  right: 50%;
+  overflow: hidden;
+  transform: translateX(50%) rotateX(0deg) scale(1);
+  z-index: 2;
+  animation: pelota 1.5s ease-in-out infinite;
+}
+.pelota:before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 5px solid #fff;
+	border-radius: 50%;
+	box-sizing: border-box;
+	background: transparent;
+	left: -65%;
+	filter: blur(1px);
+}
+.pelota:after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 5px solid #fff;
+	border-radius: 50%;
+	box-sizing: border-box;
+	background: transparent;
+	right: -65%;
+	filter: blur(1px);
+}
+
+.shadow {
+  width: 85px;
+  height: 85px;
+  background-color: rgba(100, 100, 100, 0.25);
+  position: absolute;
+  right: 50%;
+  bottom: -112px;
+  border-radius: 50%;
+  transform: rotateX(90deg) rotateY(0.5deg) translateX(50%) scale(1.1);
+  transform-origin: right 50%;
+  z-index: 1;
+  animation: shadow 1.5s ease-in-out infinite;
+}
+/* Añado Scale para darle tamaño a la pelota y a la sombra en cada desplazamiento */
+@keyframes pelota {
+  25% {
+    transform: translateX(50%) rotateX(0deg) scale(1);
+  }
+
+  50% {
+    top: 100%;
+    transform: translateX(50%) rotateX(60deg) scale(1.1);
+  }
+
+  85% {
+    transform: translateX(50%) rotateX(0deg) scale(1);
+  }
+}
+
+@keyframes shadow {
+  50% {
+    transform: rotateX(90deg) rotateY(0.5deg) scale(0.55) translateX(50%);
+    background-color: rgba(100, 100, 100, 0.5);
+  }
+
+  100% {
+    transform: rotateX(90deg) rotateY(0.5deg) translateX(50%) scale(1.1);
+  }
+}
